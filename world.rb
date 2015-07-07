@@ -1,6 +1,6 @@
 class World
 
-  def create
+  def create(*cell)
     []
   end
 
