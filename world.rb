@@ -1,8 +1,13 @@
 class World
+  attr_reader :population
 
-  def create(*cell)
-    if cell
-      still_alive?(cell)
+  def initialize(population)
+    @population = population
+  end
+
+  def create
+    if population
+      still_alive?(population)
     else
       self.empty?
     end
