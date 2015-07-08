@@ -23,6 +23,10 @@ describe World do
       world = World.new([[0,0],[0,1],[1,0]])
       expect(world.still_alive?([0,0])).to eq true
     end
+    it 'survives with three neighbours' do
+      world = World.new([[0,0],[0,1],[1,0], [1,1]])
+      expect(world.still_alive?([1,1])).to eq true
+    end
 
   end
 
