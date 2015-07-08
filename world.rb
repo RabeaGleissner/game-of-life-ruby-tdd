@@ -16,22 +16,50 @@ class World
   def still_alive?(cell)
     if neighbour_count(cell) < 2
       false
-    else
+    elsif neighbour_count(cell) < 4
       true
+    else
+      puts 'not valid'
     end
   end
 
   def neighbour_count(cell)
     cell_row = cell.first 
-    cell_column = cell.last
+    cell_col = cell.last
 
-    if @population.include?([cell_row, cell_column+1] && [cell_row+1, cell_column])
+    neighbours_array = []
 
-      return 2
-    else
-      return 0
+    @population.each do |inhabitant|
+
+      inhabitant_row = inhabitant.first
+      inhabitant_col = inhabitant.last
+
+      if cell_row -1 == inhabitant_row && cell_col -1 == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row == inhabitant_row && cell_col -1 == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row +1 == inhabitant_row && cell_col -1 == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row -1 == inhabitant_row && cell_col == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row +1 == inhabitant_row && cell_col == inhabitant_col
+        neighbours_array <<1
+      end
+      if cell_row -1 == inhabitant_row && cell_col +1 == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row == inhabitant_row && cell_col +1 == inhabitant_col
+        neighbours_array << 1
+      end
+      if cell_row +1 == inhabitant_row && cell_col +1 == inhabitant_col
+        neighbours_array << 1
+      end
     end
-    
+    return neighbours_array.length
   end
 
   def empty?
