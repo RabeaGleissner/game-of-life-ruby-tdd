@@ -16,10 +16,10 @@ class World
   def still_alive?(cell)
     if neighbour_count(cell) < 2
       false
-    elsif neighbour_count(cell) < 4
+    elsif neighbour_count(cell) <= 3
       true
-    else
-      puts 'not valid'
+    elsif neighbour_count(cell) >= 4
+      false
     end
   end
 
