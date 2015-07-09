@@ -41,7 +41,10 @@ describe World do
     it 'has three alive neighbours and is reborn' do
       world = World.new([[0,0], [0,1], [1,0]], 3, 3)
       expect(world.identify_reborns).to match_array([[1,1]])
+      world = World.new([[4,1], [2,2], [4,2], [9,2], [10,2], [4,3], [5,3], [9,3]], 16, 6)
+      expect(world.identify_reborns).to match_array([[3, 1], [3, 3], [10, 3]])
     end
+
   end
 
 
