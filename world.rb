@@ -1,8 +1,10 @@
 class World
-  attr_reader :population
+  attr_reader :population, :rows, :columns
 
-  def initialize(population)
+  def initialize(population, rows, columns)
     @population = population
+    @rows = rows
+    @columns = columns
   end
 
   def create
@@ -22,6 +24,7 @@ class World
       false
     end
   end
+
 
   def neighbour_count(cell)
     cell_row = cell.first 
