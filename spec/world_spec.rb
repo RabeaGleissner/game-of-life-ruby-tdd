@@ -37,6 +37,12 @@ describe World do
     end
   end
 
+  describe 'dead cell' do
+    it 'has three alive neighbours and is reborn' do
+      world = World.new([[0,0], [0,1], [1,0]], 3, 3)
+      expect(world.identify_reborns).to match_array([[1,1]])
+    end
+  end
 
 
   

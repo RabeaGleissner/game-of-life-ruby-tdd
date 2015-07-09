@@ -25,6 +25,26 @@ class World
     end
   end
 
+  def identify_reborns
+    all_cells = []
+    @rows.times do |row|
+      @columns.times do |column|
+        all_cells << [row, column]
+      end
+    end
+    
+    dead_cells = all_cells - @population 
+
+    reborns = []
+    dead_cells.each do |cell|
+      if neighbour_count(cell) == 3
+        reborns << cell
+      else
+        cell
+      end
+    end
+    return reborns
+  end
 
   def neighbour_count(cell)
     cell_row = cell.first 
