@@ -7,7 +7,19 @@ class World
     @columns = columns
   end
 
+  def next_gen
+    cell_array = []
 
+    @population.each do |live_cell|
+      if still_alive?(live_cell) == true
+        cell_array << live_cell
+      end
+    end
+    identify_reborns.each do |live_cell| 
+      cell_array << live_cell
+    end
+    return cell_array
+  end
 
   def still_alive?(cell)
     if neighbour_count(cell) < 2

@@ -49,4 +49,17 @@ describe World do
       expect(world.identify_reborns).to match_array([])
     end
   end
+  describe 'generation' do
+    it 'moves to the next generation' do
+      world = World.new([[4,1], [2,2], [4,2], [8,1], [9,1], [9,2], [10,2], [4,3], [5,3], [9,3]], 16, 6)
+      expect(world.next_gen).to match_array([[4,2], [8,1], [9,1], [10,2], [4,3], [5,3], [9,3], [3,1], [3,3], [10,3], [10,1]])
+    end
+  end
+
+
+
+
+
+
+
 end
