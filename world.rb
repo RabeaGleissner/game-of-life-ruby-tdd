@@ -58,33 +58,33 @@ class World
 
     neighbours_array = []
 
-    @population.each do |inhabitant|
+    @population.each do |live_cell|
 
-      inhabitant_row = inhabitant.first
-      inhabitant_col = inhabitant.last
+      live_cell_row = live_cell.first
+      live_cell_col = live_cell.last
 
-      if cell_row -1 == inhabitant_row && cell_col -1 == inhabitant_col
+      if cell_row -1 == live_cell_row && cell_col -1 == live_cell_col
         neighbours_array << 1
       end
-      if cell_row == inhabitant_row && cell_col -1 == inhabitant_col
+      if cell_row == live_cell_row && cell_col -1 == live_cell_col
         neighbours_array << 1
       end
-      if cell_row +1 == inhabitant_row && cell_col -1 == inhabitant_col
+      if cell_row +1 == live_cell_row && cell_col -1 == live_cell_col
         neighbours_array << 1
       end
-      if cell_row -1 == inhabitant_row && cell_col == inhabitant_col
+      if cell_row -1 == live_cell_row && cell_col == live_cell_col
         neighbours_array << 1
       end
-      if cell_row +1 == inhabitant_row && cell_col == inhabitant_col
+      if cell_row +1 == live_cell_row && cell_col == live_cell_col
         neighbours_array <<1
       end
-      if cell_row -1 == inhabitant_row && cell_col +1 == inhabitant_col
+      if cell_row -1 == live_cell_row && cell_col +1 == live_cell_col
         neighbours_array << 1
       end
-      if cell_row == inhabitant_row && cell_col +1 == inhabitant_col
+      if cell_row == live_cell_row && cell_col +1 == live_cell_col
         neighbours_array << 1
       end
-      if cell_row +1 == inhabitant_row && cell_col +1 == inhabitant_col
+      if cell_row +1 == live_cell_row && cell_col +1 == live_cell_col
         neighbours_array << 1
       end
     end
@@ -92,7 +92,11 @@ class World
   end
 
   def empty?
-    true
+    if @population.any?
+      false
+    else
+      true
+    end
   end
 
 end

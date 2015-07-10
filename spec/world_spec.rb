@@ -6,6 +6,8 @@ describe World do
   it 'creates an empty world' do
     world = World.new([], 3, 3)
     expect(world.empty?).to eq true
+    world = World.new([[1,1]], 3, 3)
+    expect(world.empty?).to eq false
   end
 
   describe 'alive cell' do
