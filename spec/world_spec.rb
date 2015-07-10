@@ -49,10 +49,4 @@ describe World do
       expect(world.identify_reborns).to match_array([])
     end
   end
-
-
-  
-
-
-
 end

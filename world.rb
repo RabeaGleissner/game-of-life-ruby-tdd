@@ -7,13 +7,7 @@ class World
     @columns = columns
   end
 
-  def create
-    if population
-      still_alive?(population)
-    else
-      self.empty?
-    end
-  end
+
 
   def still_alive?(cell)
     if neighbour_count(cell) < 2
